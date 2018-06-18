@@ -28,7 +28,7 @@
 		</tbody>
 	</table>
 	<div>
-		<a type="button" class="btn btn-success" href="/add-todo">Add</a>
+		<a type="button" class="btn btn-success" href="add-todo">Add</a>
 	</div>
 </div>
 <%@ include file="common/footer.jspf"%>
