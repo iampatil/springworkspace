@@ -22,9 +22,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			throws Exception {
 		auth.jdbcAuthentication().dataSource(dataSource)
         .usersByUsernameQuery("select username, password, enabled"
-            + " from users where username=?")
+            + " from tbl_users where username=?")
         .authoritiesByUsernameQuery("select username, authority "
-            + "from authorities where username=?")
+            + "from tbl_authorities where username=?")
         .passwordEncoder(new BCryptPasswordEncoder());
 		/*auth.inMemoryAuthentication().withUser("in28Minutes").password("dummy")
 				.roles("USER", "ADMIN");*/
