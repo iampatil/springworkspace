@@ -1,4 +1,5 @@
-package com.in28minutes.todo;
+package com.system.controller;
+
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -19,8 +20,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.in28minutes.model.Todo;
-import com.in28minutes.todo.service.TodoService;
+import com.system.model.Todo;
+import com.system.service.TodoService;
 
 @Controller
 @SessionAttributes("name")

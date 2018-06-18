@@ -1,4 +1,4 @@
-package com.in28minutes.security;
+package com.system.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

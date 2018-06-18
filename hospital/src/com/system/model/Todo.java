@@ -1,4 +1,4 @@
-package com.in28minutes.model;
+package com.system.model;
 
 import java.util.Date;
 
