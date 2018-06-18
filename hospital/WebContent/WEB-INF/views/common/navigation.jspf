@@ -11,7 +11,7 @@
 			<li><a href="http://www.in28minutes.com">In28Minutes</a></li>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="/logout">Logout</a></li>
+			<li><a href="logout">Logout</a></li>
 		</ul>
 	</div>
 
