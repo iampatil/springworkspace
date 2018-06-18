@@ -11,11 +11,19 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
+	
+	
 	@Autowired
 	public void configureGlobalSecurity(AuthenticationManagerBuilder auth)
 			throws Exception {
-		auth.inMemoryAuthentication().withUser("in28Minutes").password("dummy")
-				.roles("USER", "ADMIN");
+		auth.jdbcAuthentication().dataSource(dataSource)
+        .usersByUsernameQuery("select username, password, enabled"
+            + " from users where username=?")
+        .authoritiesByUsernameQuery("select username, authority "
+            + "from authorities where username=?")
+        .passwordEncoder(new BCryptPasswordEncoder());
+		/*auth.inMemoryAuthentication().withUser("in28Minutes").password("dummy")
+				.roles("USER", "ADMIN");*/
 	}
 
 	@Override
