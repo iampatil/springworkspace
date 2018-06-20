@@ -1,21 +1,43 @@
-<%@ include file="common/header.jspf"%>
-<%@ include file="common/navigation.jspf"%>
-<div class="container">
-	<p>
-		<font color="red">${errorMessage}</font>
-	</p>
-	<form action="/login" method="POST">
-		<fieldset class="form-group">
-			<label>Name</label> <input name="name" type="text"
-				class="form-control" />
-		</fieldset>
-		<fieldset class="form-group">
-			<label>Password</label> <input name="password" type="password"
-				class="form-control" />
-		</fieldset>
-		<button type="submit" class="btn btn-success">Submit</button>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<html>
+<head>
+<title>Custom Login Page</title>
+</head>
+<body>
+	<h3>Custom Login Page</h3>
+	<%
+	    String error = (String) request.getAttribute("error");
+	    if (error != null && error.equals("true"))
+	    {
+	        out.println("<h4 style=\"color:red\">Invalid login credentials. Please try again!!</h4>");
+	    }
+	    
+	    String logout = (String) request.getAttribute("logout");
+	   
+	    if (logout != null && logout.equals("true"))
+	    {
+	        out.println("<h4 style=\"color:green\">You have logged out successfully!!</h4>");
+	    }
+	     
+	%>
+	<form action="<c:url value='login' />" method='POST'>
+
+		<table>
+			<tr>
+				<td>User:</td>
+				<td><input type='text' name='username' value=''></td>
+			</tr>
+			<tr>
+				<td>Password:</td>
+				<td><input type='password' name='password' /></td>
+			</tr>
+			<tr>
+				<td><input name="submit" type="submit" value="Login" /></td>
+				<td><input name="reset" type="reset" /> <input type="hidden"
+					name="${_csrf.parameterName}" value="${_csrf.token}" /></td>
+			</tr>
+		</table>
+
 	</form>
-
-</div>
-
-<%@ include file="common/footer.jspf"%>
+</body>
+</html>
